@@ -1,0 +1,166 @@
+<html>
+	<head>
+		<title>Phonics</title>
+		<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+		
+		<style>
+			
+			html, body { height: 100%; margin: 0; padding: 0; text-align: center; }
+			.container { display: table; }
+			.content { display: table-row; height: 100%; }
+			.content-body { display: table-cell; }
+			.container { width: 100%; height: 100%; }
+			.header, .footer { padding: 10px 20px; border-bottom: 1px solid #404040; }
+			.content-body { padding: 20px; background: #f4f4f4; vertical-align: middle; }
+
+			.letter {
+				font-size: 2vw;
+				margin: 1em;
+				width: 2em;
+				height: 2em;
+				cursor: pointer;
+			}
+			
+			.letter.included {
+				box-shadow: 0px 0px 5px red;
+			}
+			
+			.content-body {
+				font-size: 25vw;
+				cursor: pointer;
+				user-select: none;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<div id="app"/>
+		
+		<script>
+		
+			const e = React.createElement;
+
+			class App extends React.Component {
+				constructor(props) {
+				super(props);
+				
+				var sounds = new Map(Object.entries(
+					{
+						a: { included: true, words: ['mat', 'jam', 'rat', 'map', 'man', 'ham', 'Nat', 'pad', 'mad', 'Dan', 'fan', 'bag', 'wag', 'rag', 'sag', 'hag', 'fat', 'pat', 'tap', 'pan', 'nap', 'lap', 'Sam', 'mass', 'dad', 'rap', 'tan', 'Pam', 'gas', 'Ann'] },
+						e: { included: false, words: ['yes', 'men', 'tell', 'egg', 'net', 'pen', 'bet', 'bell', 'let', 'pen', 'net', 'sell', 'bed', 'get', 'den', 'leg', 'leg', 'pet', 'Ben', 'web', 'well', 'red' ] },
+						i: { included: false, words: ['miss', 'fit', 'did', 'Jim', 'Jill', 'Sis', 'nip', 'fib', 'dig', 'bib', 'bit', 'him', 'sit', 'hip', 'hit', 'sin', 'sip', 'Bill', 'fig', 'win', 'rip', 'Tim', 'bin', 'hill', 'pin'] },
+						o: { included: false, words: ['nod', 'sob', 'dot', 'pop', 'not', 'boss', 'hot', 'moss', 'log', 'doll', 'lot', 'pot', 'hop', 'Bob', 'got', 'top', 'job', 'hog', 'dog', 'Tom', 'fog', 'mop', 'Don', 'rob'] },
+						u: { included: false, words: ['hum', 'run', 'bus', 'bug', 'tug', 'nun', 'bud', 'sun', 'sum', 'bun', 'mutt', 'tub', 'huff', 'pup', 'fuzz', 'nut', 'mug', 'mud', 'hut', 'Gus', 'hug', 'rub', 'rug', 'gun', 'muff'] }
+					}
+				));
+				
+				const word = this.pickWord(sounds);
+				
+				this.state = {
+					sounds: sounds,
+					word: word
+					};
+			  }
+			  
+			  pickWord(sounds) {
+				
+				var includedSounds = [];
+				sounds.forEach((value, key) => {
+					if (value.included) {
+						includedSounds.push(value);
+					}
+				});
+				
+				if (includedSounds.length === 0)
+					return null;
+				
+				const soundIndex = Math.floor(Math.random() * includedSounds.length);
+				
+				const wordIndex = Math.floor(Math.random() * includedSounds[soundIndex].words.length);
+				
+				return includedSounds[soundIndex].words[wordIndex];
+			  }
+			  
+			  toggleSound(soundName) {
+				this.setState((state) => {
+					var copy = {...state};
+					copy.sounds.get(soundName).included = !copy.sounds.get(soundName).included;
+					return copy;
+				});
+			  }
+			  
+			  nextWord() {
+			  
+				var newWord;
+				do
+				{
+					newWord = this.pickWord(this.state.sounds);
+				}
+				while (newWord && newWord === this.state.word)
+			  
+				if (newWord) {
+				  this.setState((state) => {
+						var copy = {...state};
+						copy.word = newWord
+						return copy;
+					});
+				}
+			  }
+			  
+			  render() {
+				return e(
+					'div',
+					{ className: 'container' },
+					e(
+						'div',
+						{ className: 'header' },
+						Array.from(this.state.sounds).map(o => SoundButton(
+						{
+							soundName: o[0],
+							included: o[1].included,
+							onclick: this.toggleSound.bind(this)
+						}))
+					),
+					e(
+						'div',
+						{ className: 'content' },
+						Word(
+						{
+							word: this.state.word,
+							onclick: this.nextWord.bind(this)
+						})
+					)
+				);
+			  }
+			}
+
+			function SoundButton(props) {
+				return e(
+					'button',
+					{
+						key: props.soundName,
+						onClick: () => props.onclick(props.soundName),
+						className: props.included ? 'letter included' : 'letter'
+					},
+					props.soundName
+				);
+			}
+			
+			function Word(props) {
+				return e(
+					'div',
+					{
+						className: 'content-body',
+						onClick: () => props.onclick(props.nextWord)
+					},
+					props.word
+				);
+			}
+		
+			const domContainer = document.getElementById('app');
+			ReactDOM.render(e(App), domContainer);
+		</script>
+	</body>
+</head>
