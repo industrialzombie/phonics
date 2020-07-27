@@ -21,16 +21,9 @@
 			.header, .footer { padding: 1em; border-bottom: 1px solid #404040; border-top: 1px solid #404040; }
 			.content-body { padding: 20px; background: #f4f4f4; vertical-align: middle; }
 
-			.letter {
-				font-size: 3vh;
-				margin: 0 2vh;
-				width: 5vh;
-				height: 5vh;
-				cursor: pointer;
-			}
-			
-			.letter.included {
-				box-shadow: 0px 0px 5px red;
+			.header select, .header option {
+				font-size: 2vw;
+				margin: 0 2vw;
 			}
 			
 			.next-button {
@@ -52,6 +45,175 @@
 		<div id="app"/>
 		
 		<script>
+
+			const chapter1 = {
+				number: 1,
+				name: 'a',
+				words: ['mat', 'jam', 'rat', 'map', 'man', 'ham', 'Nat', 'pad', 'mad', 'Dan', 'fan', 'bag', 'wag', 'rag', 'sag', 'hag', 'fat', 'pat', 'tap', 'pan', 'nap', 'lap', 'Sam', 'mass', 'dad', 'rap', 'tan', 'Pam', 'gas', 'Ann']
+			};
+			
+			const chapter2 = {
+				number: 2,
+				name: 'e',
+				words: ['yes', 'men', 'tell', 'egg', 'net', 'pen', 'bet', 'bell', 'let', 'pen', 'net', 'sell', 'bed', 'get', 'den', 'leg', 'leg', 'pet', 'Ben', 'web', 'well', 'red' ]
+			};
+			
+			const chapter3 = {
+				number: 3,
+				name: 'Review',
+				words: [...chapter1.words, ...chapter2.words]
+			};
+
+			const chapter4 = {
+				number: 4,
+				name: 'i',
+				words: ['miss', 'fit', 'did', 'Jim', 'Jill', 'Sis', 'nip', 'fib', 'dig', 'bib', 'bit', 'him', 'sit', 'hip', 'hit', 'sin', 'sip', 'Bill', 'fig', 'win', 'rip', 'Tim', 'bin', 'hill', 'pin']
+			};
+
+			const chapter5 = {
+				number: 5,
+				name: 'Review',
+				words: [...chapter3.words, ...chapter4.words]
+			};
+
+			const chapter6 = {
+				number: 6,
+				name: 'o',
+				words: ['nod', 'sob', 'dot', 'pop', 'not', 'boss', 'hot', 'moss', 'log', 'doll', 'lot', 'pot', 'hop', 'Bob', 'got', 'top', 'job', 'hog', 'dog', 'Tom', 'fog', 'mop', 'Don', 'rob']
+			};
+
+			const chapter7 = {
+				number: 7,
+				name: 'Review',
+				words: [...chapter5.words, ...chapter6.words]
+			};
+
+			const chapter8 = {
+				number: 8,
+				name: 'u',
+				words: ['hum', 'run', 'bus', 'bug', 'tug', 'nun', 'bud', 'sun', 'sum', 'bun', 'mutt', 'tub', 'huff', 'pup', 'fuzz', 'nut', 'mug', 'mud', 'hut', 'Gus', 'hug', 'rub', 'rug', 'muff']
+			};
+
+			const chapter9 = {
+				number: 9,
+				name: 'Review',
+				words: [...chapter7.words, ...chapter8.words]
+			};
+
+			const chapter10 = {
+				number: 10,
+				name: 'c k',
+				words: ['cab', 'can', 'cap', 'cat', 'cob', 'cod', 'cop', 'cot', 'cub', 'cuff', 'cup', 'cut', 'keg', 'kid', 'kiss', 'kit']
+			};
+
+			const chapter11 = {
+				number: 11,
+				name: 'ck',
+				words: ['pick', 'tick', 'luck', 'lick', 'suck', 'lock', 'lack', 'kick', 'sick', 'pack', 'tack', 'neck', 'tuck', 'buck', 'rack', 'deck', 'sock', 'rock', 'nick', 'hack', 'dock', 'jack', 'back', 'sack', 'duck', 'luck', 'sack', 'nick', 'pack', 'back', 'duck', 'tuck', 'tick', 'pick', 'dock', 'rack', 'sick', 'buck', 'lock', 'neck', 'deck']
+			};
+
+			const chapter12 = {
+				number: 12,
+				name: 'Review',
+				words: [...chapter9.words, ...chapter10.words, ...chapter11.words]
+			};
+			
+			const chapter13 = {
+				number: 13,
+				name: 'ct ft lb lf lk lm lp lt mp nd nt pt sk sp st',
+				words: [
+					'nest',
+					'best',
+					'dump',
+					'mend',
+					'rest',
+					'land',
+					'belt',
+					'bond',
+					'bend',
+					'lend',
+					'test',
+					'vest',
+					'limp',
+					'bulb',
+					'hump',
+					'kept',
+					'ask',
+					'just',
+					'band',
+					'hint',
+					'desk',
+					'pond',
+					'went',
+					'zest',
+					'self',
+					'fist',
+					'dust',
+					'rust',
+					'pest',
+					'camp',
+					'mist',
+					'fact',
+					'list',
+					'hunt',
+					'lump',
+					'bent',
+					'gift',
+					'milk',
+					'sift',
+					'felt',
+					'fond',
+					'left',
+					'must',
+					'lift',
+					'end',
+					'west',
+					'gulp',
+					'help',
+					'wept',
+					'silk',
+					'lent',
+					'last',
+					'fast',
+					'melt',
+					'sulk',
+					'elf',
+					'bulk',
+					'lisp',
+					'pump',
+					'bump',
+					'sand',
+					'send',
+					'tent',
+					'mint',
+					'lamp',
+					'dusk',
+					'jump',
+					'damp',
+					'mist',
+					'dusk',
+					'zest',
+					'fond',
+					'bulb',
+					'mask',
+					'lisp',
+					'jump',
+					'desk',
+					'list',
+					'last',
+					'melt',
+					'fist',
+					'lump',
+					'rest',
+					'camp',
+					'must',
+					'sulk',
+					'and',
+					'ask',
+					'help',
+					'send'
+				]
+			};
 		
 			const e = React.createElement;
 
@@ -59,67 +221,69 @@
 				constructor(props) {
 				super(props);
 				
-				var sounds = new Map(Object.entries(
-					{
-						a: { included: true, words: ['mat', 'jam', 'rat', 'map', 'man', 'ham', 'Nat', 'pad', 'mad', 'Dan', 'fan', 'bag', 'wag', 'rag', 'sag', 'hag', 'fat', 'pat', 'tap', 'pan', 'nap', 'lap', 'Sam', 'mass', 'dad', 'rap', 'tan', 'Pam', 'gas', 'Ann'] },
-						e: { included: false, words: ['yes', 'men', 'tell', 'egg', 'net', 'pen', 'bet', 'bell', 'let', 'pen', 'net', 'sell', 'bed', 'get', 'den', 'leg', 'leg', 'pet', 'Ben', 'web', 'well', 'red' ] },
-						i: { included: false, words: ['miss', 'fit', 'did', 'Jim', 'Jill', 'Sis', 'nip', 'fib', 'dig', 'bib', 'bit', 'him', 'sit', 'hip', 'hit', 'sin', 'sip', 'Bill', 'fig', 'win', 'rip', 'Tim', 'bin', 'hill', 'pin'] },
-						o: { included: false, words: ['nod', 'sob', 'dot', 'pop', 'not', 'boss', 'hot', 'moss', 'log', 'doll', 'lot', 'pot', 'hop', 'Bob', 'got', 'top', 'job', 'hog', 'dog', 'Tom', 'fog', 'mop', 'Don', 'rob'] },
-						u: { included: false, words: ['hum', 'run', 'bus', 'bug', 'tug', 'nun', 'bud', 'sun', 'sum', 'bun', 'mutt', 'tub', 'huff', 'pup', 'fuzz', 'nut', 'mug', 'mud', 'hut', 'Gus', 'hug', 'rub', 'rug', 'muff'] }
-					}
-				));
-				
-				const word = this.pickWord(sounds);
+				this.chapters = [
+					chapter1,
+					chapter2,
+					chapter3,
+					chapter4,
+					chapter5,
+					chapter6,
+					chapter7,
+					chapter8,
+					chapter9,
+					chapter10,
+					chapter11,
+					chapter12,
+					chapter13
+				];
+								
+				const word = this.pickWord(chapter1.words);
 				
 				this.state = {
-					sounds: sounds,
+					selectedChapter: chapter1.number,
 					word: word
 					};
 			  }
 			  
-			  pickWord(sounds) {
+			  pickWord(words) {
+								
+				const wordIndex = Math.floor(Math.random() * words.length);
 				
-				var includedSounds = [];
-				sounds.forEach((value, key) => {
-					if (value.included) {
-						includedSounds.push(value);
-					}
-				});
-				
-				if (includedSounds.length === 0)
-					return null;
-				
-				const soundIndex = Math.floor(Math.random() * includedSounds.length);
-				
-				const wordIndex = Math.floor(Math.random() * includedSounds[soundIndex].words.length);
-				
-				return includedSounds[soundIndex].words[wordIndex];
-			  }
-			  
-			  toggleSound(soundName) {
-				this.setState((state) => {
-					var copy = {...state};
-					copy.sounds.get(soundName).included = !copy.sounds.get(soundName).included;
-					return copy;
-				});
+				return words[wordIndex];
 			  }
 			  
 			  nextWord() {
-			  
+			  			  
 				var newWord;
 				do
 				{
-					newWord = this.pickWord(this.state.sounds);
+					newWord = this.pickWord(this.chapters.find(c => c.number == this.state.selectedChapter).words);
 				}
 				while (newWord && newWord === this.state.word)
 			  
 				if (newWord) {
 				  this.setState((state) => {
-						var copy = {...state};
-						copy.word = newWord
-						return copy;
+						return {
+							...state,
+							word: newWord
+						};
 					});
 				}
+			  }
+			  
+			  selectChapter(chapter) {
+				  
+				  if (chapter === this.state.selectedChapter)
+					return;
+				  
+				  const newWord = this.pickWord(this.chapters.find(c => c.number == chapter).words);
+				  this.setState((state) => {
+						return {
+							...state,
+							word: newWord,
+							selectedChapter: chapter,
+						};
+					});
 			  }
 			  
 			  render() {
@@ -129,12 +293,17 @@
 					e(
 						'div',
 						{ className: 'header' },
-						Array.from(this.state.sounds).map(o => SoundButton(
-						{
-							soundName: o[0],
-							included: o[1].included,
-							onclick: this.toggleSound.bind(this)
-						}))
+						e(
+							'select',
+							{
+								defaultValue: this.state.selectedChapter,
+								onChange: (e) => this.selectChapter(e.target.value)
+							},
+							this.chapters.map(chapter => ChapterButton(
+							{
+								chapter: chapter
+							}))
+						)
 					),
 					e(
 						'div',
@@ -156,15 +325,14 @@
 			  }
 			}
 
-			function SoundButton(props) {
+			function ChapterButton({chapter}) {
 				return e(
-					'button',
+					'option',
 					{
-						key: props.soundName,
-						onClick: () => props.onclick(props.soundName),
-						className: props.included ? 'letter included' : 'letter'
+						key: chapter.number,
+						value: chapter.number
 					},
-					props.soundName
+					chapter.number + ': ' + chapter.name
 				);
 			}
 			
