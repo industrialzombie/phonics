@@ -121,100 +121,27 @@
 			const chapter13 = {
 				number: 13,
 				name: 'ct ft lb lf lk lm lp lt mp nd nt pt sk sp st',
-				words: [
-					'nest',
-					'best',
-					'dump',
-					'mend',
-					'rest',
-					'land',
-					'belt',
-					'bond',
-					'bend',
-					'lend',
-					'test',
-					'vest',
-					'limp',
-					'bulb',
-					'hump',
-					'kept',
-					'ask',
-					'just',
-					'band',
-					'hint',
-					'desk',
-					'pond',
-					'went',
-					'zest',
-					'self',
-					'fist',
-					'dust',
-					'rust',
-					'pest',
-					'camp',
-					'mist',
-					'fact',
-					'list',
-					'hunt',
-					'lump',
-					'bent',
-					'gift',
-					'milk',
-					'sift',
-					'felt',
-					'fond',
-					'left',
-					'must',
-					'lift',
-					'end',
-					'west',
-					'gulp',
-					'help',
-					'wept',
-					'silk',
-					'lent',
-					'last',
-					'fast',
-					'melt',
-					'sulk',
-					'elf',
-					'bulk',
-					'lisp',
-					'pump',
-					'bump',
-					'sand',
-					'send',
-					'tent',
-					'mint',
-					'lamp',
-					'dusk',
-					'jump',
-					'damp',
-					'mist',
-					'dusk',
-					'zest',
-					'fond',
-					'bulb',
-					'mask',
-					'lisp',
-					'jump',
-					'desk',
-					'list',
-					'last',
-					'melt',
-					'fist',
-					'lump',
-					'rest',
-					'camp',
-					'must',
-					'sulk',
-					'and',
-					'ask',
-					'help',
-					'send'
-				]
+				words: ['nest', 'best', 'dump', 'mend', 'rest', 'land', 'belt', 'bond', 'bend', 'lend', 'test', 'vest', 'limp', 'bulb', 'hump', 'kept', 'ask', 'just', 'band', 'hint', 'desk', 'pond', 'went', 'zest', 'self', 'fist', 'dust', 'rust', 'pest', 'camp', 'mist', 'fact', 'list', 'hunt', 'lump', 'bent', 'gift', 'milk', 'sift', 'felt', 'fond', 'left', 'must', 'lift', 'end', 'west', 'gulp', 'help', 'wept', 'silk', 'lent', 'last', 'fast', 'melt', 'sulk', 'elf', 'bulk', 'lisp', 'pump', 'bump', 'sand', 'send', 'tent', 'mint', 'lamp', 'dusk', 'jump', 'damp', 'mist', 'dusk', 'zest', 'fond', 'bulb', 'mask', 'lisp', 'jump', 'desk', 'list', 'last', 'melt', 'fist', 'lump', 'rest', 'camp', 'must', 'sulk', 'and', 'ask', 'help', 'send']
+			};
+
+			const chapter14 = {
+				number: 14,
+				name: 'bs cks ds ffs gs lls ms ns ps ts cts fts lbs lks lms lps lts mps nds nts pts sks sps sts',
+				words: ['acts', 'asks', 'bats', 'beds', 'bills', 'bugs', 'buns', 'camps', 'cats', 'cops', 'cuffs', 'cups', 'cuts', 'digs', 'ducks', 'dusts', 'elms', 'facts', 'fins', 'gifts', 'gulps', 'hands', 'hats', 'helps', 'hens', 'hills', 'hints', 'hops', 'hums', 'jumps', 'lifts', 'lips', 'lisps', 'masks', 'mats', 'melts', 'mends', 'milks', 'nests', 'pants', 'pigs', 'pills', 'pumps', 'rests', 'ribs', 'rips', 'sells', 'sips', 'sulks', 'tops', 'tubs', 'wigs']
 			};
 		
+			const chapter15 = {
+				number: 15,
+				name: 'ng nk sh x ngs nks',
+				words: ['ash', 'ax', 'bangs', 'bank', 'box', 'cash', 'dash', 'dish', 'dunk', 'fish', 'fix', 'fox', 'gang', 'gash', 'gush', 'hang', 'hash', 'hush', 'ink', 'junk', 'king', 'lash', 'link', 'long', 'lungs', 'mash', 'max', 'mink', 'mix', 'monk', 'mush', 'next', 'ox', 'pink', 'rank', 'rash', 'ring', 'rung', 'rush', 'sash', 'sing', 'sink', 'six', 'song', 'sunk', 'tank', 'tax', 'wax', 'wing', 'winks', 'wish']
+			};
+
+			const chapter16 = {
+				number: 16,
+				name: 'Review',
+				words: [...chapter12.words, ...chapter13.words, ...chapter14.words, ...chapter15.words]
+			};
+			
 			const e = React.createElement;
 
 			class App extends React.Component {
@@ -234,7 +161,10 @@
 					chapter10,
 					chapter11,
 					chapter12,
-					chapter13
+					chapter13,
+					chapter14,
+					chapter15,
+					chapter16
 				];
 								
 				const word = this.pickWord(chapter1.words);
