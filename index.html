@@ -142,6 +142,36 @@
 				words: [...chapter12.words, ...chapter13.words, ...chapter14.words, ...chapter15.words]
 			};
 			
+			const chapter17_1 = {
+				number: 17.1,
+				name: 'bl cl fl gl pl sc sk sl sm sn sp st sw tw spl',
+				words: ['lump - plump', 'tub - stub', 'lap - flap', 'lamp - clamp', 'win - twin', 'lad - glad', 'lip - clip', 'pan - span', 'lock - block', 'lend - blend', 'lack - slack', 'lint - splint', 'camp - scamp', 'well - swell', 'nap - snap', 'lap - clap', 'pit - spit', 'lip - slip', 'link - blink', 'lash - splash', 'lock - flock', 'pick - spick', 'wept - swept', 'lash - flash', 'pill - spill', 'lip - flip', 'lick - slick']
+			};
+
+			const chapter17_2 = {
+				number: 17.2,
+				name: 'bl cl fl gl pl sc sk sl sm sn sp st sw tw spl',
+				words: ['snip', 'blink', 'clap', 'stem', 'slink', 'twin', 'spick', 'plum', 'clamp', 'click', 'block', 'plot', 'club', 'stab', 'slap', 'glad', 'clump', 'snag', 'splash', 'stop', 'stub', 'blend', 'slip', 'clip', 'flag', 'flop', 'flap', 'twig', 'skip', 'swell', 'swim', 'slick', 'spit', 'flash', 'stick', 'slot', 'span', 'scat', 'plum', 'snap', 'slack', 'flint', 'swig', 'flock', 'glint']
+			};
+
+			const chapter18_1 = {
+				number: 18.1,
+				name: 'br cr dr fr gr pr scr spr str shr tr',
+				words: ['rat - brat', 'rub - scrub', 'rip - grip', 'ring - bring', 'rink - drink', 'rag - brag', 'rust - crust', 'rip - strip', 'rim - brim', 'rip - trip', 'rug - drug', 'ramp - cramp', 'rust - trust', 'rap - strap', 'ring - string', 'rash - crash', 'rush - brush', 'rug - shrug']
+			};
+
+			const chapter18_2 = {
+				number: 18.2,
+				name: 'br cr dr fr gr pr scr spr str shr tr',
+				words: ['brim', 'frank', 'brush', 'shrimp', 'spring', 'grill', 'drank', 'grand', 'grip', 'brat', 'brink', 'strap', 'trot', 'crest', 'brand', 'drink', 'bring', 'prompt', 'crust', 'trust', 'Fred', 'frog', 'drug', 'shrug', 'drill', 'cramp', 'tramp', 'drum', 'truck', 'prank', 'print', 'crack', 'crash', 'strip', 'grunt', 'drink', 'crush', 'grin', 'string', 'trap', 'crock', 'fresh', 'crank', 'dress', 'press', 'frills', 'Fran', 'drip', 'scrub', 'shrub', 'frock', 'crust', 'strong', 'brisk', 'trick', 'shrug', 'cramp', 'drab', 'crab', 'strip']
+			};
+			
+			const chapter19 = {
+				number: 19,
+				name: 'Review',
+				words: [...chapter16.words, ...chapter17_1.words, ...chapter17_2.words, ...chapter18_1.words, ...chapter18_2.words]
+			};
+			
 			const e = React.createElement;
 
 			class App extends React.Component {
@@ -164,7 +194,12 @@
 					chapter13,
 					chapter14,
 					chapter15,
-					chapter16
+					chapter16,
+					chapter17_1,
+					chapter17_2,
+					chapter18_1,
+					chapter18_2,
+					chapter19
 				];
 								
 				const word = this.pickWord(chapter1.words);
